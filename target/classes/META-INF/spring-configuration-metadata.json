@@ -1,0 +1,16 @@
+{
+  "groups": [
+    {
+      "name": "jk",
+      "type": "com.ideal.jk.prop.JKProperties",
+      "sourceType": "com.ideal.jk.prop.JKProperties"
+    },
+    {
+      "name": "jk.prop-config",
+      "type": "com.ideal.jk.prop.JKProperties$PropConfig",
+      "sourceType": "com.ideal.jk.prop.JKProperties"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}
