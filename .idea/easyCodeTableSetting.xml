@@ -89,7 +89,7 @@
             </TableInfoDTO>
           </value>
         </entry>
-        <entry key="province">
+        <entry key="plate_region">
           <value>
             <TableInfoDTO>
               <option name="fullColumn">
@@ -100,9 +100,10 @@
                       <map />
                     </option>
                     <option name="name" value="id" />
-                    <option name="type" value="java.math.BigInteger" />
+                    <option name="type" value="java.lang.Integer" />
                   </ColumnInfoDTO>
                   <ColumnInfoDTO>
+                    <option name="comment" value="名称" />
                     <option name="custom" value="false" />
                     <option name="ext">
                       <map />
@@ -111,10 +112,60 @@
                     <option name="type" value="java.lang.String" />
                   </ColumnInfoDTO>
                   <ColumnInfoDTO>
+                    <option name="comment" value="车牌" />
                     <option name="custom" value="false" />
                     <option name="ext">
                       <map />
                     </option>
+                    <option name="name" value="plate" />
+                    <option name="type" value="java.lang.String" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="comment" value="拼音全称" />
+                    <option name="custom" value="false" />
+                    <option name="ext">
+                      <map />
+                    </option>
+                    <option name="name" value="pinyin" />
+                    <option name="type" value="java.lang.String" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="comment" value="所属省份的id 如果是省份则为0" />
+                    <option name="custom" value="false" />
+                    <option name="ext">
+                      <map />
+                    </option>
+                    <option name="name" value="parentId" />
+                    <option name="type" value="java.lang.Integer" />
+                  </ColumnInfoDTO>
+                </list>
+              </option>
+              <option name="name" value="PlateRegion" />
+              <option name="preName" value="" />
+              <option name="saveModelName" value="JiaKao" />
+              <option name="savePackageName" value="com.ideal.jk" />
+              <option name="savePath" value="./src/main/java/com/ideal/jk" />
+              <option name="templateGroupName" value="MybatisPlus_ideal" />
+            </TableInfoDTO>
+          </value>
+        </entry>
+        <entry key="province">
+          <value>
+            <TableInfoDTO>
+              <option name="fullColumn">
+                <list>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="name" value="id" />
+                    <option name="type" value="java.math.BigInteger" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="name" value="name" />
+                    <option name="type" value="java.lang.String" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
                     <option name="name" value="plate" />
                     <option name="type" value="java.lang.String" />
                   </ColumnInfoDTO>
