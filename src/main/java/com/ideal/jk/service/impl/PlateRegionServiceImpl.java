@@ -1,6 +1,8 @@
 package com.ideal.jk.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.github.promeg.pinyinhelper.Pinyin;
 import com.ideal.jk.enhance.MpPage;
 import com.ideal.jk.enhance.MpQueryWrapper;
 import com.ideal.jk.mapper.PlateRegionMapper;
@@ -13,10 +15,30 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class PlateRegionServiceImpl extends ServiceImpl<PlateRegionMapper, PlateRegion> implements PlateRegionService {
 
+    @Override
+    public boolean save(PlateRegion entity) {
+        processPinyin(entity);
+        return super.save(entity);
+    }
+
+    @Override
+    public boolean updateById(PlateRegion entity) {
+        processPinyin(entity);
+        return super.updateById(entity);
+    }
+
+    public void processPinyin(PlateRegion entity) {
+        String name = entity.getName();
+        if (name == null || name.length() == 0) return;
+
+        entity.setPinyin(Pinyin.toPinyin(name, ""));
+    }
 
     @Override
     @Transactional(readOnly = true)
@@ -53,6 +75,15 @@ public class PlateRegionServiceImpl extends ServiceImpl<PlateRegionMapper, Plate
         }
 
         baseMapper.selectPage(new MpPage<>(query), wrapper).updateQuery(query);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<PlateRegion> allProvinces() {
+        MpQueryWrapper<PlateRegion> wrapper = new MpQueryWrapper<>();
+        wrapper.like(PlateRegion::getParentId, 0);
+        wrapper.orderByAsc(PlateRegion::getPinyin);
+        return baseMapper.selectList(wrapper);
     }
 
 }
